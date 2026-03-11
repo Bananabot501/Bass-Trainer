@@ -1,26 +1,22 @@
-const cacheName = 'bass-trainer-v1';
-const assets = [
+const cacheName = 'bassline-v1';
+const staticAssets = [
   './',
   './index.html',
-  './manifest.json',
-  // Add your CSS or JS filenames here, like:
-  // './style.css',
+  './manifest.json'
 ];
 
-// Install the service worker and cache files
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll(assets);
-    })
-  );
+self.addEventListener('install', async event => {
+  const cache = await caches.open(cacheName);
+  await cache.addAll(staticAssets);
 });
 
-// Serve files from cache when offline
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+  const req = event.request;
+  event.respondWith(cacheFirst(req));
 });
+
+async function cacheFirst(req) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(req);
+  return cached || fetch(req);
+}
