@@ -1,0 +1,24 @@
+{
+  "name": "BassLine — Learn & Play Bass",
+  "short_name": "BassLine",
+  "description": "The free Yousician alternative for bass players. Tuner, lessons, and live play detection for 4, 5, and 6-string bass.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23111'/><text y='320' x='80' font-size='300' font-family='Arial'>🎸</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["music", "education", "entertainment"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "./",
+  "prefer_related_applications": false,
+  "screenshots": []
+}
